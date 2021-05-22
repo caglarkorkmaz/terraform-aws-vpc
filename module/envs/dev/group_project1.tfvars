@@ -1,6 +1,5 @@
-module "vpc_team1" {
-    source = "../"
-    region       = "us-east-1"
+
+    region       = var.region
     cidr_block   = "10.0.0.0/16"
     public_cidr1 = "10.0.101.0/24"
     public_cidr2 = "10.0.102.0/24"
@@ -18,9 +17,9 @@ module "vpc_team1" {
     tags = {
     Name = "VPC-Group-Project"
     Team = "Team1"
-}
+    }
 
-}   
+    }   
 
 
     output "region" {

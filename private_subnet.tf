@@ -5,6 +5,7 @@ resource "aws_subnet" "private_subnet1" {
   availability_zone = data.aws_availability_zones.available.names[0]
   tags = var.tags
 }
+
 resource "aws_subnet" "private_subnet2" {
   
   vpc_id     = aws_vpc.main.id
@@ -12,6 +13,7 @@ resource "aws_subnet" "private_subnet2" {
   availability_zone = data.aws_availability_zones.available.names[1]
   tags = var.tags
 }
+
 resource "aws_subnet" "private_subnet3" {
   
   vpc_id     = aws_vpc.main.id
@@ -20,15 +22,34 @@ resource "aws_subnet" "private_subnet3" {
   tags = var.tags
 }
 
+
+
+//
+
+
+
+
 resource "aws_eip" "nat" {
   vpc      = true
   tags = var.tags
 }
+
+
+
+//
+
+
 resource "aws_nat_gateway" "gw" {
   allocation_id = aws_eip.nat.id
   subnet_id     = aws_subnet.public_subnet1.id
   tags = var.tags
 }
+
+
+
+
+//
+
 
 
 
@@ -40,6 +61,8 @@ resource "aws_route_table" "private" {
   }
   tags = var.tags
 }
+
+
 
 resource "aws_route_table_association" "private1" {
   subnet_id = aws_subnet.private_subnet1.id

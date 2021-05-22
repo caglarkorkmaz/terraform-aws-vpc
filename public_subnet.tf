@@ -6,9 +6,11 @@ resource "aws_subnet" "public_subnet1" {
   vpc_id     = aws_vpc.main.id
   cidr_block = var.public_cidr1
   availability_zone = data.aws_availability_zones.available.names[0]
+  map_public_ip_on_launch = var.map_public_ip_on_launch
   tags = var.tags
-  map_public_ip_on_launch = true
-}
+ }
+
+
 resource "aws_subnet" "public_subnet2" {
   depends_on = [
     aws_vpc.main
@@ -16,10 +18,12 @@ resource "aws_subnet" "public_subnet2" {
   vpc_id     = aws_vpc.main.id
   cidr_block = var.public_cidr2
   availability_zone = data.aws_availability_zones.available.names[1]
+  map_public_ip_on_launch = var.map_public_ip_on_launch
   tags = var.tags
-   map_public_ip_on_launch = true
-
 }
+
+
+
 resource "aws_subnet" "public_subnet3" {
   depends_on = [
     aws_vpc.main
@@ -27,15 +31,29 @@ resource "aws_subnet" "public_subnet3" {
   vpc_id     = aws_vpc.main.id
   cidr_block = var.public_cidr3
   availability_zone = data.aws_availability_zones.available.names[2]
+  map_public_ip_on_launch = var.map_public_ip_on_launch
   tags = var.tags
-  map_public_ip_on_launch = true
 }
+
+
+
+
+
+//
+
+
 
 resource "aws_internet_gateway" "gw" {
 
   vpc_id = aws_vpc.main.id
   tags = var.tags
 }
+
+
+
+
+//
+
 
 resource "aws_route_table" "public" {
   depends_on = [
@@ -47,8 +65,16 @@ resource "aws_route_table" "public" {
     cidr_block = "0.0.0.0/0"
     gateway_id = aws_internet_gateway.gw.id
   }
-  tags = var.tags
+   tags =  var.tags
+  
+
+
 }
+
+
+
+
+//
 
 
 resource "aws_route_table_association" "public1" {
