@@ -1,9 +1,16 @@
 This module creates AWS VPC with 3 public ,3 private subnets ,IG and NAT.
 
-1 IG will be created on public subnet1
+1 IG will be created.
+1 NAT gateway will be created.
+1 Elastic IP address will be created.
 
-1 NAT gateway will be created on private subnet1
+* Side note ; in case there is a problem when you run terraform destroy, please go to the AWS console and delete the VPC manually.
 
+* Please don't forget to specify version of the module. (Latest version is recommended)
+
+
+
+Copy and paste this code and run terraform init , terraform apply.
 
 
 ```
@@ -37,6 +44,7 @@ This module creates AWS VPC with 3 public ,3 private subnets ,IG and NAT.
 
     }   
 
+# please don't forget to modify output values if you are changing name of the module.
 
     output "region" {
         value = module.vpc_team1.region
