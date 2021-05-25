@@ -10,7 +10,7 @@ This module creates AWS VPC with 3 public ,3 private subnets ,IG and NAT.
 
     module "vpc_team1" {
 
-    source = "ckmzdevops/terraform-aws-vpc"
+    source = "ckmzdevops/vpc/aws"
     region       = "us-east-1"
     cidr_block   = "10.0.0.0/16"
     public_cidr1 = "10.0.101.0/24"
