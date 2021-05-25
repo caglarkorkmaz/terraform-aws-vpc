@@ -11,6 +11,10 @@ This module creates AWS VPC with 3 public ,3 private subnets ,IG and NAT.
     module "vpc_team1" {
 
     source = "ckmzdevops/vpc/aws"
+     
+    # Please provide the version here. (using latest version recommended)
+    version = ""
+    
     region       = "us-east-1"
     cidr_block   = "10.0.0.0/16"
     public_cidr1 = "10.0.101.0/24"
