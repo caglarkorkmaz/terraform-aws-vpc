@@ -46,6 +46,14 @@ Copy and paste this code and run terraform init , terraform apply.
 
 # please don't forget to modify output values if you are changing name of the module.
 
+  output "region" {
+        value = module.vpc_team1.region
+    }
+
+    output "vpc_id" {
+        value = module.vpc_team1.vpc
+    }
+
     output "public_subnet1" {
         value = module.vpc_team1.public_subnets[0]
     }
@@ -67,7 +75,5 @@ Copy and paste this code and run terraform init , terraform apply.
      output "private_subnet3" {
         value = module.vpc_team1.private_subnets[2]
     }
-
-
 
 ```
