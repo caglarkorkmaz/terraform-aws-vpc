@@ -17,7 +17,7 @@ Copy and paste this code and run terraform init , terraform apply.
 
     module "vpc_team1" {
 
-    source = "ckmzdevops/vpc/aws"
+    source = "caglarkorkmaz/vpc/aws"
      
     # Please provide the version here. (using latest version recommended)
     version = ""
